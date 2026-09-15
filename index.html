@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Git e VS Code — Guia rápido</title>
+	<style>
+		:root { --bg:#0f172a; --card:#172033; --line:#2b3954; --text:#e5edf8; --muted:#9fb0c9; --accent:#60a5fa; --green:#34d399; }
+		* { box-sizing:border-box; }
+		body { margin:0; font-family:Inter,Segoe UI,Arial,sans-serif; background:linear-gradient(135deg,#0b1120,#16233d); color:var(--text); line-height:1.5; }
+		header { padding:56px 20px 40px; text-align:center; border-bottom:1px solid var(--line); }
+		h1 { margin:0 0 10px; font-size:clamp(2rem,5vw,3.5rem); }
+		header p { margin:0 auto; max-width:650px; color:var(--muted); }
+		main { max-width:1150px; margin:auto; padding:36px 20px 60px; }
+		.toolbar { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:24px; }
+		input { width:100%; max-width:420px; padding:13px 16px; border:1px solid var(--line); border-radius:10px; background:#0b1324; color:var(--text); font-size:1rem; }
+		.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+		section { background:rgba(23,32,51,.94); border:1px solid var(--line); border-radius:14px; padding:22px; box-shadow:0 8px 24px #0002; }
+		h2 { margin:0 0 16px; color:var(--accent); font-size:1.35rem; }
+		.item { padding:13px 0; border-top:1px solid var(--line); }
+		.item:first-of-type { border-top:0; padding-top:0; }
+		code, kbd { font-family:Consolas,monospace; }
+		code { display:inline-block; color:var(--green); background:#0b1324; padding:5px 8px; border-radius:6px; margin-bottom:5px; }
+		kbd { background:#26344d; border:1px solid #40516f; border-radius:5px; padding:3px 7px; color:#fff; box-shadow:0 1px 0 #000; }
+		.desc { display:block; color:var(--muted); font-size:.93rem; }
+		footer { text-align:center; color:var(--muted); padding:20px; font-size:.9rem; }
+		.hidden { display:none; }
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Git &amp; VS Code</h1>
+		<p>Guia rápido com os principais comandos Git e atalhos essenciais do Visual Studio Code.</p>
+	</header>
+	<main>
+		<div class="toolbar">
+			<input id="search" type="search" placeholder="Pesquisar comando ou atalho..." aria-label="Pesquisar">
+		</div>
+		<div class="grid" id="cards">
+			<section data-content="git iniciar configurar status histórico">
+				<h2>Git — básico</h2>
+				<div class="item"><code>git init</code><span class="desc">Cria um novo repositório.</span></div>
+				<div class="item"><code>git clone URL</code><span class="desc">Baixa um repositório remoto.</span></div>
+				<div class="item"><code>git status</code><span class="desc">Mostra o estado dos arquivos.</span></div>
+				<div class="item"><code>git log --oneline</code><span class="desc">Exibe o histórico resumido.</span></div>
+				<div class="item"><code>git diff</code><span class="desc">Mostra alterações ainda não preparadas.</span></div>
+			</section>
+			<section data-content="git commit branch ramo merge juntar remoto github">
+				<h2>Git — fluxo de trabalho</h2>
+				<div class="item"><code>git add .</code><span class="desc">Prepara todas as alterações.</span></div>
+				<div class="item"><code>git commit -m "mensagem"</code><span class="desc">Registra as alterações.</span></div>
+				<div class="item"><code>git branch nome</code><span class="desc">Cria uma branch.</span></div>
+				<div class="item"><code>git switch nome</code><span class="desc">Troca de branch.</span></div>
+				<div class="item"><code>git merge nome</code><span class="desc">Une uma branch à atual.</span></div>
+				<div class="item"><code>git pull</code><span class="desc">Baixa e integra mudanças remotas.</span></div>
+				<div class="item"><code>git push origin nome</code><span class="desc">Envia commits para o remoto.</span></div>
+			</section>
+			<section data-content="git desfazer reset revert remover stash guardar tag">
+				<h2>Git — desfazer e guardar</h2>
+				<div class="item"><code>git restore arquivo</code><span class="desc">Descarta alterações locais no arquivo.</span></div>
+				<div class="item"><code>git reset HEAD arquivo</code><span class="desc">Remove o arquivo da área de stage.</span></div>
+				<div class="item"><code>git revert HASH</code><span class="desc">Desfaz um commit com segurança.</span></div>
+				<div class="item"><code>git stash</code><span class="desc">Guarda alterações temporariamente.</span></div>
+				<div class="item"><code>git stash pop</code><span class="desc">Recupera alterações guardadas.</span></div>
+				<div class="item"><code>git tag v1.0.0</code><span class="desc">Cria uma marcação de versão.</span></div>
+			</section>
+			<section data-content="vs code atalhos editor arquivo terminal pesquisa">
+				<h2>VS Code — navegação</h2>
+				<div class="item"><kbd>Ctrl</kbd> + <kbd>P</kbd><span class="desc">Abrir rapidamente um arquivo.</span></div>
+				<div class="item"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd><span class="desc">Abrir a Paleta de Comandos.</span></div>
+				<div class="item"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd><span class="desc">Pesquisar em todos os arquivos.</span></div>
+				<div class="item"><kbd>Ctrl</kbd> + <kbd>`</kbd><span class="desc">Abrir ou fechar o terminal.</span></div>
+				<div class="item"><kbd>Ctrl</kbd> + <kbd>B</kbd><span class="desc">Mostrar ou ocultar a barra lateral.</span></div>
+			</section>
+			<section data-content="vs code atalhos edição linha comentário formatar">
+				<h2>VS Code — edição</h2>
+				<div class="item"><kbd>Ctrl</kbd> + <kbd>D</kbd><span class="desc">Selecionar a próxima ocorrência.</span></div>
+				<div class="item"><kbd>Alt</kbd> + <kbd>↑</kbd> / <kbd>↓</kbd><span class="desc">Mover a linha para cima ou baixo.</span></div>
+				<div class="item"><kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>↓</kbd><span class="desc">Duplicar a linha.</span></div>
+				<div class="item"><kbd>Ctrl</kbd> + <kbd>/</kbd><span class="desc">Alternar comentário de linha.</span></div>
+				<div class="item"><kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd><span class="desc">Formatar o documento.</span></div>
+				<div class="item"><kbd>Ctrl</kbd> + <kbd>S</kbd><span class="desc">Salvar o arquivo.</span></div>
+			</section>
+			<section data-content="vs code atalhos visualização zen zoom fechar">
+				<h2>VS Code — visualização</h2>
+				<div class="item"><kbd>Ctrl</kbd> + <kbd>+</kbd> / <kbd>-</kbd><span class="desc">Aumentar ou reduzir o zoom.</span></div>
+				<div class="item"><kbd>Ctrl</kbd> + <kbd>W</kbd><span class="desc">Fechar o editor atual.</span></div>
+				<div class="item"><kbd>Ctrl</kbd> + <kbd>\</kbd><span class="desc">Dividir o editor.</span></div>
+				<div class="item"><kbd>Ctrl</kbd> + <kbd>K</kbd>, <kbd>Z</kbd><span class="desc">Ativar o modo Zen.</span></div>
+			</section>
+		</div>
+	</main>
+	<footer>Atalhos para Windows/Linux. No macOS, substitua <kbd>Ctrl</kbd> por <kbd>Cmd</kbd> quando aplicável.</footer>
+	<script>
+		const search = document.querySelector('#search');
+		const cards = [...document.querySelectorAll('section')];
+		search.addEventListener('input', () => {
+			const term = search.value.toLowerCase();
+			cards.forEach(card => card.classList.toggle('hidden', !card.textContent.toLowerCase().includes(term) && !card.dataset.content.includes(term)));
+		});
+	</script>
+</body>
+</html>
